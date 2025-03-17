@@ -33,20 +33,12 @@ nano ~/.ssh/authorized_keys —-> coller la clé publique
 # Partie 3 : Analyse du stockage
 
 **Q.2.3.1**
-df -Th
+![Capture d'écran 2025-03-17 114552](https://github.com/user-attachments/assets/899dbca3-5a62-44f1-83c1-499e6722811e)
 
-Filesystem     Type     Size  Used Avail Use% Mounted on
-
-/dev/sda1      ext4     30G   20G   10G  70% /
-
-tmpfs          tmpfs    2G     0    2G   0%  /dev/shm
-
-/dev/sdb1      xfs      50G  10G   40G  20% /data
 
 **Q.2.3.2**
 ✔️ext4 
 ✔️tmpfs 
-✔️xfs 
 
 **Q.2.3.3**
 ✔️pour /dev/sdb
@@ -96,13 +88,22 @@ vgdisplay vg_bareos | grep "Free  PE" | awk '{print $5*4 " MB"}'
 # Partie 5 : Filtrage et analyse réseau
 **Q.2.5.1**
 sudo iptables -L -v -n
+![Capture d'écran 2025-03-17 115102](https://github.com/user-attachments/assets/3bb87127-4f9b-498d-bcf1-aca924c751af)
 
 **Q.2.5.2**
+![Capture d'écran 2025-03-17 115154](https://github.com/user-attachments/assets/c776c496-0d0c-4d20-b625-f1ae2fec12a1)
+
+**Q.2.5.3**
+Chercher les règles DROP ou REJECT dans iptables. `iptables -L -v -n | grep -E "DROP|REJECT"` ---> il n' ya pas 
+
+**Q.2.5.4**
+![Capture d'écran 2025-03-17 121533](https://github.com/user-attachments/assets/61cbe39e-ba7f-4b7d-9a45-f7c97d2b1705)
 
 # Partie 6 : Analyse de logs
 
 **Q.2.6.1**
 sudo grep "Failed password" /var/log/auth.log | tail -n 10
+![Capture d'écran 2025-03-17 122617](https://github.com/user-attachments/assets/e1fad7a1-9f88-4874-a86e-e15033a627a4)
 
 
 
